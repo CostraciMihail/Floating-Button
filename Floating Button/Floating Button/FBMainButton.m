@@ -14,8 +14,14 @@
 #define yPosition self.bounds.origin.y
 #define BORDER_WIDTH 3
 
+#define DEGREES_TO_RADIANS(degrees)((M_PI * degrees)/180)
+
 
 @implementation FBMainButton
+{
+    BOOL buttonPressed;
+}
+
 
 #pragma mark - init
 #pragma mark
@@ -29,6 +35,8 @@
 		self.layer.cornerRadius = frame.size.width/2;
 		self.layer.borderColor = [UIColor whiteColor].CGColor;
 		self.layer.borderWidth = BORDER_WIDTH;
+        
+        buttonPressed = NO;
 		
 		NSLog(@"MainButton");
 		NSLog(@"x = %f",self.frame.origin.x);
@@ -46,8 +54,9 @@
 
 - (void)addPlusView
 {
-	FBPLusView *plusView = [[FBPLusView alloc] initWithFrame: CGRectMake(xPosition + BORDER_WIDTH, yPosition + BORDER_WIDTH, WIDTH - BORDER_WIDTH*2, HEIGHT - BORDER_WIDTH*2)];
+	plusView = [[FBPLusView alloc] initWithFrame: CGRectMake(xPosition + BORDER_WIDTH, yPosition + BORDER_WIDTH, WIDTH - BORDER_WIDTH*2, HEIGHT - BORDER_WIDTH*2)];
 	
+    //ADD GESTURE
 	UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonSelected)];
 	tapGesture.numberOfTapsRequired = 1;
 	tapGesture.numberOfTouchesRequired = 1;
@@ -71,8 +80,35 @@
 
 - (void)buttonSelected
 {
-	
+    static int imgAngle=0;
+    
+   if (!buttonPressed)
+   {
+       buttonPressed = YES;
+       
+       CABasicAnimation *animation = [CABasicAnimation   animationWithKeyPath:@"transform.rotation.z"];
+       animation.duration = 0.15;
+       animation.additive = YES;
+       animation.removedOnCompletion = NO;
+       animation.fillMode = kCAFillModeForwards;
+       animation.fromValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle)];
+       animation.toValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle+110)];
+       [plusView.layer addAnimation:animation forKey:@"rotation"];
+   }
+    else if (buttonPressed)
+    {
+        buttonPressed = NO;
+        
+        CABasicAnimation *animation = [CABasicAnimation   animationWithKeyPath:@"transform.rotation.z"];
+        animation.duration = 0.15;
+        animation.additive = YES;
+        animation.removedOnCompletion = NO;
+        animation.fillMode = kCAFillModeForwards;
+        animation.fromValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle+110)];
+        animation.toValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle)];
+        [plusView.layer addAnimation:animation forKey:@"rotation"];
 
+    }
 	
 	
 }

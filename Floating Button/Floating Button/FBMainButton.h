@@ -10,7 +10,9 @@
 #import "FBPLusView.h"
 
 @interface FBMainButton : UIButton
-
+{
+    FBPLusView *plusView;
+}
 
 @property (nonatomic, strong) NSMutableArray *arrayOfButtons;
 
