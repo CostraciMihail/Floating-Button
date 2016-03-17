@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 
-#define BUTTON_WIDTH 50
-#define BUTTON_HEIGHT 50
+#define BUTTON_WIDTH 80
+#define BUTTON_HEIGHT 80
 
 
 @interface ViewController ()
@@ -26,8 +26,8 @@
 	
 	FBMainButton *mainButton =
 	[[FBMainButton alloc] initWithFrame:
-						CGRectMake([UIScreen mainScreen].bounds.size.width/2 - BUTTON_WIDTH,
-								  [UIScreen mainScreen].bounds.size.height/2 - BUTTON_WIDTH,
+						CGRectMake([UIScreen mainScreen].bounds.size.width/2 - BUTTON_WIDTH/2,
+								  [UIScreen mainScreen].bounds.size.height/2 - BUTTON_WIDTH/2,
 																			   BUTTON_WIDTH,
 																			   BUTTON_WIDTH)
 																			  andButtons:2];

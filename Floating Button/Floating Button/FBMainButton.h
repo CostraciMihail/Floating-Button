@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBPLusView.h"
 
 @interface FBMainButton : UIButton
 
