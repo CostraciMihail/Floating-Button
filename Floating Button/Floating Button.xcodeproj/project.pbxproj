@@ -15,6 +15,8 @@
 		477CF2431C9AA97800C8A558 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477CF2411C9AA97800C8A558 /* LaunchScreen.storyboard */; };
 		477CF24E1C9AA97900C8A558 /* Floating_ButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF24D1C9AA97900C8A558 /* Floating_ButtonTests.m */; };
 		477CF2591C9AA97900C8A558 /* Floating_ButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF2581C9AA97900C8A558 /* Floating_ButtonUITests.m */; };
+		477CF2681C9AAFEE00C8A558 /* FBMainButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF2671C9AAFEE00C8A558 /* FBMainButton.m */; };
+		477CF26C1C9AC3AE00C8A558 /* FBPLusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF26B1C9AC3AE00C8A558 /* FBPLusView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		477CF2541C9AA97900C8A558 /* Floating ButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Floating ButtonUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		477CF2581C9AA97900C8A558 /* Floating_ButtonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Floating_ButtonUITests.m; sourceTree = "<group>"; };
 		477CF25A1C9AA97900C8A558 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		477CF2661C9AAFEE00C8A558 /* FBMainButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBMainButton.h; sourceTree = "<group>"; };
+		477CF2671C9AAFEE00C8A558 /* FBMainButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBMainButton.m; sourceTree = "<group>"; };
+		477CF26A1C9AC3AE00C8A558 /* FBPLusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBPLusView.h; sourceTree = "<group>"; };
+		477CF26B1C9AC3AE00C8A558 /* FBPLusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBPLusView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,7 @@
 				477CF2371C9AA97800C8A558 /* AppDelegate.m */,
 				477CF2391C9AA97800C8A558 /* ViewController.h */,
 				477CF23A1C9AA97800C8A558 /* ViewController.m */,
+				477CF26D1C9AC3B800C8A558 /* Button */,
 				477CF23C1C9AA97800C8A558 /* Main.storyboard */,
 				477CF23F1C9AA97800C8A558 /* Assets.xcassets */,
 				477CF2411C9AA97800C8A558 /* LaunchScreen.storyboard */,
@@ -138,6 +145,17 @@
 				477CF25A1C9AA97900C8A558 /* Info.plist */,
 			);
 			path = "Floating ButtonUITests";
+			sourceTree = "<group>";
+		};
+		477CF26D1C9AC3B800C8A558 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				477CF2661C9AAFEE00C8A558 /* FBMainButton.h */,
+				477CF2671C9AAFEE00C8A558 /* FBMainButton.m */,
+				477CF26A1C9AC3AE00C8A558 /* FBPLusView.h */,
+				477CF26B1C9AC3AE00C8A558 /* FBPLusView.m */,
+			);
+			name = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +220,7 @@
 		477CF2281C9AA97800C8A558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = FB;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Costraci Mihail";
 				TargetAttributes = {
@@ -271,7 +290,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				477CF23B1C9AA97800C8A558 /* ViewController.m in Sources */,
+				477CF2681C9AAFEE00C8A558 /* FBMainButton.m in Sources */,
 				477CF2381C9AA97800C8A558 /* AppDelegate.m in Sources */,
+				477CF26C1C9AC3AE00C8A558 /* FBPLusView.m in Sources */,
 				477CF2351C9AA97800C8A558 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

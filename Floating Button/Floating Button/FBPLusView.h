@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FBPLusView.h
 //  Floating Button
 //
 //  Created by winify on 3/17/16.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FBMainButton.h"
 
-@interface ViewController : UIViewController
-
+@interface FBPLusView : UIView
 
 @end
-
