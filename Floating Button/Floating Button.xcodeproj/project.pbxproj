@@ -17,6 +17,7 @@
 		477CF2591C9AA97900C8A558 /* Floating_ButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF2581C9AA97900C8A558 /* Floating_ButtonUITests.m */; };
 		477CF2681C9AAFEE00C8A558 /* FBMainButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF2671C9AAFEE00C8A558 /* FBMainButton.m */; };
 		477CF26C1C9AC3AE00C8A558 /* FBPLusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 477CF26B1C9AC3AE00C8A558 /* FBPLusView.m */; };
+		73263A851C9B08EE0064D168 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73263A841C9B08EE0064D168 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		477CF2671C9AAFEE00C8A558 /* FBMainButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBMainButton.m; sourceTree = "<group>"; };
 		477CF26A1C9AC3AE00C8A558 /* FBPLusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBPLusView.h; sourceTree = "<group>"; };
 		477CF26B1C9AC3AE00C8A558 /* FBPLusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBPLusView.m; sourceTree = "<group>"; };
+		73263A841C9B08EE0064D168 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73263A851C9B08EE0064D168 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,7 @@
 				477CF24C1C9AA97900C8A558 /* Floating ButtonTests */,
 				477CF2571C9AA97900C8A558 /* Floating ButtonUITests */,
 				477CF2311C9AA97800C8A558 /* Products */,
+				73263A841C9B08EE0064D168 /* QuartzCore.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -517,6 +521,7 @@
 				477CF25F1C9AA97900C8A558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477CF2601C9AA97900C8A558 /* Build configuration list for PBXNativeTarget "Floating ButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				477CF2621C9AA97900C8A558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477CF2631C9AA97900C8A558 /* Build configuration list for PBXNativeTarget "Floating ButtonUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +539,7 @@
 				477CF2651C9AA97900C8A558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
