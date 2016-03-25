@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "FBPLusView.h"
 
-@interface FBMainButton : UIButton
-{
+@interface FBMainButton : UIButton {
+	
     FBPLusView *plusView;
+	CGRect childButtonFrame;
 }
 
 @property (nonatomic, strong) NSMutableArray *arrayOfButtons;
-
 
 - (instancetype)initWithFrame:(CGRect)frame andButtons:(int)totalNrButtons;
 

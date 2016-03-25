@@ -20,33 +20,31 @@
 @implementation FBMainButton
 {
     BOOL buttonPressed;
+	int totalNrButtons;
 }
 
 
 #pragma mark - init
 #pragma mark
 
-- (instancetype)initWithFrame:(CGRect)frame andButtons:(int)totalNrButtons
+- (instancetype)initWithFrame:(CGRect)frame andButtons:(int)nrButtons
 {
 	self = [super initWithFrame:frame];
 	if (self)
 	{
+		totalNrButtons = nrButtons;
 		self.backgroundColor = [UIColor blueColor];
 		self.layer.cornerRadius = frame.size.width/2;
 		self.layer.borderColor = [UIColor whiteColor].CGColor;
 		self.layer.borderWidth = BORDER_WIDTH;
+		
+		self.arrayOfButtons = [NSMutableArray new];
         
         buttonPressed = NO;
 		
-		NSLog(@"MainButton");
-		NSLog(@"x = %f",self.frame.origin.x);
-		NSLog(@"y = %f",self.frame.origin.y);
-		NSLog(@"width = %f",self.bounds.size.width);
-		NSLog(@"height = %f",self.bounds.size.height);
-		
 		//ADD PLUS VIEW
 		[self addPlusView];
-		
+		[self addChildButtonWithFrame:CGRectMake(xPosition + 5, yPosition + 5, WIDTH - 10, HEIGHT - 10) andImage:nil];
 		
 	}
 	return self;
@@ -65,22 +63,31 @@
 	[self addSubview:plusView];
 }
 
-- (UIButton*)addChildButtonWithFrame:(CGRect)frame  andImage:(UIImage*)buttonImage
+- (void)addChildButtonWithFrame:(CGRect)frame  andImage:(UIImage*)buttonImage
 {
-	UIButton *button = [[UIButton alloc] initWithFrame:frame];
-	button.layer.cornerRadius = frame.size.width/2;
+	childButtonFrame = frame;
 	
-
-	return button;
+	for (int i = 0; i < totalNrButtons; i++)
+	{
+	  {
+		UIButton *button = [[UIButton alloc] initWithFrame:frame];
+		button.layer.cornerRadius = frame.size.width/2;
+		button.backgroundColor = [UIColor blueColor];
+		[self addSubview:button];
+		[self sendSubviewToBack:button];
+		[self.arrayOfButtons addObject:button];
+	  }
+	}
+	
 }
 
 
-#pragma mark - Actions
+#pragma mark - Actions And Animation
 #pragma mark
 
 - (void)buttonSelected
 {
-    static int imgAngle=0;
+    static int imgAngle = 0;
     
    if (!buttonPressed)
    {
@@ -92,8 +99,12 @@
        animation.removedOnCompletion = NO;
        animation.fillMode = kCAFillModeForwards;
        animation.fromValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle)];
-       animation.toValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle+110)];
+       animation.toValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle+130)];
        [plusView.layer addAnimation:animation forKey:@"rotation"];
+
+	   
+	   [self animateRiseUpChildButtons:YES];
+
    }
     else if (buttonPressed)
     {
@@ -104,15 +115,55 @@
         animation.additive = YES;
         animation.removedOnCompletion = NO;
         animation.fillMode = kCAFillModeForwards;
-        animation.fromValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle+110)];
+        animation.fromValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle+130)];
         animation.toValue = [NSNumber numberWithFloat:DEGREES_TO_RADIANS(imgAngle)];
         [plusView.layer addAnimation:animation forKey:@"rotation"];
+		
+		[self animateRiseUpChildButtons:NO];
 
     }
-	
-	
 }
 
+- (void)animateRiseUpChildButtons:(BOOL)riseUp
+{
+	if (riseUp)
+	{
+		 [self.arrayOfButtons enumerateObjectsUsingBlock:^(UIButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+			 
+			 [UIView animateWithDuration:0.5
+								   delay:0
+				  usingSpringWithDamping:0.4
+				   initialSpringVelocity:0
+								 options:UIViewAnimationOptionCurveLinear
+							  animations:^{
+				 
+				 [button setFrame:CGRectMake(childButtonFrame.origin.x,
+											 childButtonFrame.origin.y - ((20+childButtonFrame.size.width) * (idx+1)),
+											 childButtonFrame.size.width,
+											 childButtonFrame.size.height)];
+			 } completion:nil];
+		 }];
+	}
+	
+	
+	if (!riseUp)
+	{
+		[self.arrayOfButtons enumerateObjectsWithOptions:NSEnumerationReverse
+											  usingBlock:^(UIButton * _Nonnull button, NSUInteger idx, BOOL * _Nonnull stop) {
+
+			  [UIView animateWithDuration:0.5
+									delay:0
+				   usingSpringWithDamping:1
+					initialSpringVelocity:0
+								  options:UIViewAnimationOptionCurveLinear
+							   animations:^{
+				  
+					[button setFrame:CGRectMake(xPosition + 5, yPosition + 5, WIDTH - 10, HEIGHT - 10)];
+			  } completion:nil];
+												  
+	  }];
+	}
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

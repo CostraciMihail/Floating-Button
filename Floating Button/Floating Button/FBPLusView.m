@@ -25,14 +25,9 @@
 	if (self)
 	{
 		self.layer.cornerRadius = frame.size.width/2;
-		self.backgroundColor = [UIColor orangeColor];
+		self.backgroundColor = [UIColor blueColor];
 		self.alpha = 0.7;
-		
-		NSLog(@"PlusView");
-		NSLog(@"x = %f",frame.origin.x);
-		NSLog(@"y = %f",frame.origin.y);
-		NSLog(@"width = %f",frame.size.width);
-		NSLog(@"height = %f",frame.size.height);
+
 		[self addPlusView];
 		
 	}
@@ -52,14 +47,6 @@
 	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(xPosition + FREE_SPACE, yPosition + (WIDTH/2 - HEIGHT_PLUS/2), WIDTH - FREE_SPACE*2, HEIGHT_PLUS)];
 	view.backgroundColor = [UIColor whiteColor];
 	view.layer.cornerRadius = 3;
-	NSLog(@"FirstLine");
-	NSLog(@"x = %f",view.frame.origin.x);
-	NSLog(@"y = %f",view.frame.origin.y);
-	NSLog(@"width = %f",view.bounds.size.width);
-	NSLog(@"height = %f",view.bounds.size.height);
-
-
-
 	
 	return view;
 }
@@ -69,12 +56,7 @@
 	UIView *view = [[UIView alloc] initWithFrame:CGRectMake(xPosition + (WIDTH/2 - HEIGHT_PLUS/2), yPosition + FREE_SPACE, HEIGHT_PLUS, WIDTH - FREE_SPACE*2)];
 	view.backgroundColor = [UIColor whiteColor];
 	view.layer.cornerRadius = 3;
-	NSLog(@"SecondLine");
-	NSLog(@"x = %f",view.frame.origin.x);
-	NSLog(@"y = %f",view.frame.origin.y);
-	NSLog(@"width = %f",view.bounds.size.width);
-	NSLog(@"height = %f",view.bounds.size.height);
-	
+
 	return view;
 }
 

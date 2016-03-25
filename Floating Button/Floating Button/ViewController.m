@@ -26,11 +26,11 @@
 	
 	FBMainButton *mainButton =
 	[[FBMainButton alloc] initWithFrame:
-						CGRectMake([UIScreen mainScreen].bounds.size.width/2 - BUTTON_WIDTH/2,
-								  [UIScreen mainScreen].bounds.size.height/2 - BUTTON_WIDTH/2,
+						    CGRectMake([UIScreen mainScreen].bounds.size.width/2 - BUTTON_WIDTH/2,
+								      [UIScreen mainScreen].bounds.size.height - 50 - BUTTON_WIDTH/2,
 																			   BUTTON_WIDTH,
 																			   BUTTON_WIDTH)
-																			  andButtons:2];
+																			  andButtons:4];
 	
 	[self.view addSubview:mainButton];
 
